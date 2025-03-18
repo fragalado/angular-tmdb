@@ -49,4 +49,9 @@ export class MoviesService {
   getTrendingMovies() {
     return this.http.get<MoviePopular[]>('https://api.themoviedb.org/3/trending/movie/week').pipe(map((data: any) => data.results));
   }
+
+  // Metodo que devuelve las peliculas de TMDB con el nombre de la pelicula
+  searchMovie(query: string) {
+    return this.http.get<MoviePopular[]>(`https://api.themoviedb.org/3/search/movie?query=${query}`).pipe(map((data: any) => data.results));
+  }
 }

@@ -10,6 +10,7 @@ import { PopularSeriesComponent } from './components/series/popular/popular.comp
 import { AiringTodayComponent } from './components/series/airing-today/airing-today.component';
 import { OntheAirComponent } from './components/series/onthe-air/onthe-air.component';
 import { DetailSerieComponent } from './components/series/detail/detail.component';
+import { SearchComponent } from './components/core/search/search.component';
 
 export const routes: Routes = [
   { path: '', component: PrincipalComponent, title: 'Principal' },
@@ -57,5 +58,6 @@ export const routes: Routes = [
       { path: 'detail/:id', component: DetailSerieComponent, title: 'Serie Detail' },
     ],
   },
-  
+  { path: 'search', component: SearchComponent, title: 'Search Movies and Series' },
+
 ];

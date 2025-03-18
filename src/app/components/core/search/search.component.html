@@ -1,0 +1,85 @@
+<div class="container mt-4">
+    <!-- Titulo pagina -->
+    <h2 class="text-center">Search Movies or Series</h2>
+
+    <!-- Input para buscar peliculas o series -->
+    <div class="d-flex justify-content-center my-3">
+        <input type="text" class="form-control w-50" [formControl]="searchControl" placeholder="Ingrese el nombre..." />
+    </div>
+
+    <!-- Mensaje si no se han encontrado resultados -->
+    @if(dataMovie.length === 0 && dataSerie.length === 0 && searchControl.value){
+    <div>
+        <p class="text-center text-muted">No results found for "{{ searchControl.value }}".</p>
+    </div>
+    }
+
+    <!-- Listado de peliculas -->
+    @if(dataMovie.length > 0){
+    <div>
+        <h3 class="mt-4">Películas</h3>
+        <div class="row g-3">
+            @for (movie of dataMovie; track movie.id) {
+            <div class="col-md-3 col-6">
+                <a routerLink="/movies/detail/{{ movie.id }}">
+                    <div class="card h-100 shadow">
+                        @if(movie.poster_path){
+                        <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" class="card-img-top"
+                            [alt]="movie.title">
+                        }
+                        @else if(movie.backdrop_path){
+                        <img [src]="'https://image.tmdb.org/t/p/w500' + movie.backdrop_path" class="card-img-top"
+                            [alt]="movie.title">
+                        }
+                        @else {
+                        <img src="page-not-found.webp" class="card-img-top" [alt]="movie.title">
+                        }
+                        <!-- Nombre y fecha dentro de la imagen -->
+                        <div class="overlay">
+                            <h5 class="title">{{ movie.title }}</h5>
+                            <p class="vote-average">⭐ {{ movie.vote_average}}</p>
+                            <p class="date">{{ movie.release_date | date}}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            }
+        </div>
+    </div>
+    }
+
+    <!-- Listado de series -->
+    @if(dataSerie.length > 0){
+    <div>
+        <h3 class="mt-4">Series</h3>
+        <div class="row g-3">
+            @for (serie of dataSerie; track serie.id) {
+            <div class="col-md-3 col-6">
+                <a routerLink="/series/detail/{{ serie.id }}">
+                    <div class="card h-100 shadow">
+                        @if(serie.poster_path){
+                        <img [src]="'https://image.tmdb.org/t/p/w500' + serie.poster_path" class="card-img-top"
+                            [alt]="serie.name">
+                        }
+                        @else if(serie.backdrop_path){
+                        <img [src]="'https://image.tmdb.org/t/p/w500' + serie.backdrop_path" class="card-img-top"
+                            [alt]="serie.name">
+                        }
+                        @else {
+                        <img src="page-not-found.webp" class="card-img-top" [alt]="serie.name">
+                        }
+                        <!-- Nombre y fecha dentro de la imagen -->
+                        <div class="overlay">
+                            <h5 class="title">{{ serie.name }}</h5>
+                            <p class="vote-average">⭐ {{ serie.vote_average}}</p>
+                            <p class="date">{{ serie.first_air_date| date}}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            }
+        </div>
+    </div>
+
+    }
+</div>

@@ -17,7 +17,6 @@ export class TmdbService {
   // Método que devuelve todos los lenguajes con caché
   getLanguages(): Observable<Languages[]> {
     if (!this.languages$) {
-      console.log("No hay datos");
 
       this.languages$ = this.http.get<Languages[]>(`${this.baseUrl}/configuration/languages`).pipe(
         shareReplay(1) // Almacena el resultado para evitar múltiples peticiones

@@ -84,9 +84,10 @@
       </ul>
 
       <!-- Buscador de peliculas -->
-      <form class="d-flex" role="search">
+      <form class="d-flex" role="search" (submit)="enviarDatosSearch()">
         <div class="input-group">
-          <input class="form-control rounded-start-pill" type="search" placeholder="Search" aria-label="Search">
+          <input class="form-control rounded-start-pill" type="search" placeholder="Search" aria-label="Search"
+            [(ngModel)]="name" name="name">
           <button type="submit" class="input-group-text bg-white">
             <i class="bi bi-search text-dark"></i>
           </button>

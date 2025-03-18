@@ -41,4 +41,10 @@ export class SeriesService {
   getTrendingTvShows() {
     return this.http.get<Serie[]>('https://api.themoviedb.org/3/trending/tv/week').pipe(map((data: any) => data.results));
   }
+
+
+  // Metodo que devuelve las series de TMDB con el nombre de la serie
+  searchTvShow(query: string) {
+    return this.http.get<Serie[]>(`https://api.themoviedb.org/3/search/tv?query=${query}`).pipe(map((data: any) => data.results));
+  }
 }
