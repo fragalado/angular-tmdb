@@ -1,0 +1,31 @@
+.card {
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 10px;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.vote-average {
+  font-size: 0.9rem;
+  margin: 1px;
+}
+
+.date {
+  font-size: 0.9rem;
+  margin: 0;
+  opacity: 0.8;
+}

@@ -1,0 +1,21 @@
+<div class="container mt-4">
+  <h3 class="mb-3">Popular Movies</h3>
+
+  <div class="row g-3">
+    @for (movie of movies; track movie.id) {
+    <div class="col-md-3 col-6">
+      <a routerLink="/movies/detail/{{ movie.id }}">
+        <div class="card h-100 shadow">
+          <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" class="card-img-top" [alt]="movie.title">
+          <!-- Nombre y fecha dentro de la imagen -->
+          <div class="overlay">
+            <h5 class="title">{{ movie.title }}</h5>
+            <p class="vote-average">⭐ {{ movie.vote_average}}</p>
+            <p class="date">{{ movie.release_date | date}}</p>
+          </div>
+        </div>
+      </a>
+    </div>
+    }
+  </div>
+</div>

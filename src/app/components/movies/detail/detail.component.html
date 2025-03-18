@@ -1,0 +1,56 @@
+@if (movie) {
+<div class="container mt-4">
+  <button class="btn btn-outline-secondary mb-3 d-flex align-items-center" (click)="goBack()">
+    <i class="bi bi-arrow-left me-2"></i> Return
+  </button>
+  <div class="card shadow-lg">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" class="img-fluid rounded-start"
+          alt="{{ movie.title }}" />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h2 class="card-title">{{ movie.title }}</h2>
+          <h5 class="text-muted">{{ movie.tagline }}</h5>
+          <p class="card-text">{{ movie.overview }}</p>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <strong>Genres:</strong>
+              {{
+              movie.generosUnidos
+              }}
+            </li>
+            <li class="list-group-item">
+              <strong>Original Languages:</strong>
+              {{ service.getLanguages() | async | movieOriginalLanguage: movie.original_language }}
+            </li>
+            <li class="list-group-item">
+              <strong>Runtime:</strong> {{ movie.runtime }} min
+            </li>
+            <li class="list-group-item">
+              <strong>Release Date:</strong> {{ movie.release_date }}
+            </li>
+            <li class="list-group-item">
+              <strong>Rating:</strong> ⭐{{ movie.vote_average }} ({{
+              movie.vote_count
+              }}
+              votos)
+            </li>
+            <li class="list-group-item">
+              <strong>Budget:</strong> {{ movie.budget | currency }}
+            </li>
+            <li class="list-group-item">
+              <strong>Revenue:</strong> {{ movie.revenue | currency }}
+            </li>
+          </ul>
+          @if(movie.homepage){
+          <a [href]="movie.homepage" class="btn btn-primary mt-3" target="_blank">Página Oficial</a>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+}

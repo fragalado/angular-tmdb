@@ -1,0 +1,97 @@
+<nav class="navbar navbar-expand-lg" style="background-color: #032541;">
+  <div class="container-fluid">
+    <a class="navbar-brand" style="color: #01b1de;" routerLink="/">
+      <i class="bi bi-film"></i>
+      MovieDB
+    </a>
+    <!-- Boton para desplegar navbar -->
+    <button class="navbar-toggler" style="border-color: #686868;" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <i class="bi bi-list" style="color: #686868;"></i>
+    </button>
+    <!-- Boton para desplegar navbar -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link text-white" aria-current="page" routerLink="/" routerLinkActive="active">
+            <i class="bi bi-house"></i>
+            Home
+          </a>
+        </li>
+        <!-- Movies Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false" routerLinkActive="active">
+            <i class="bi bi-film"></i>
+            Movies
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" routerLink="/movies/popular" routerLinkActive="active">
+                <i class="bi bi-graph-up-arrow"></i>
+                Popular
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/movies/top-rated" routerLinkActive="active">
+                <i class="bi bi-star-fill"></i>
+                Top Rated
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/movies/now-playing" routerLinkActive="active">
+                <i class="bi bi-play-fill"></i>
+                Now Playing
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/movies/upcoming" routerLinkActive="active">
+                <i class="bi bi-calendar-event"></i>
+                Upcoming
+              </a>
+            </li>
+          </ul>
+        </li>
+        <!-- Series Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <i class="bi bi-tv"></i>
+            Series
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLink="/series/popular" routerLinkActive="active">
+                <i class="bi bi-graph-up-arrow"></i>
+                Popular
+              </a></li>
+            <li><a class="dropdown-item" routerLink="/series/top-rated" routerLinkActive="active">
+                <i class="bi bi-star-fill"></i>
+                Top Rated
+              </a>
+            </li>
+            <li><a class="dropdown-item" routerLink="/series/airing-today" routerLinkActive="active">
+                <i class="bi bi-play-fill"></i>
+                Airing Today
+              </a>
+            </li>
+            <li><a class="dropdown-item" routerLink="/series/on-the-air" routerLinkActive="active">
+                <i class="bi bi-calendar-event"></i>
+                On The Air
+              </a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- Buscador de peliculas -->
+      <form class="d-flex" role="search">
+        <div class="input-group">
+          <input class="form-control rounded-start-pill" type="search" placeholder="Search" aria-label="Search">
+          <button type="submit" class="input-group-text bg-white">
+            <i class="bi bi-search text-dark"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>

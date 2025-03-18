@@ -1,0 +1,54 @@
+@if (serie) {
+<div class="container mt-4">
+    <button class="btn btn-outline-secondary mb-3 d-flex align-items-center" (click)="goBack()">
+        <i class="bi bi-arrow-left me-2"></i> Return
+    </button>
+
+    <div class="card shadow-lg border-0">
+        <div class="row g-0">
+            <!-- Imagen -->
+            <div class="col-md-4 d-flex align-items-center">
+                <img [src]="'https://image.tmdb.org/t/p/w500' + serie.poster_path"
+                    class="img-fluid rounded shadow-sm w-100" alt="{{ serie.name }}" />
+            </div>
+
+            <!-- Contenido -->
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h2 class="card-title fw-bold">{{ serie.name }}</h2>
+                    <h5 class="text-muted fst-italic">{{ serie.tagline }}</h5>
+                    <p class="card-text">{{ serie.overview }}</p>
+
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><i class="bi bi-tags me-2"></i><strong>Genres:</strong>
+                            {{ serie.generosUnidos}}</li>
+                        <li class="list-group-item"><i class="bi bi-translate me-2"></i><strong>Original
+                                Languages:</strong>
+                            {{ service.getLanguages() | async | movieOriginalLanguage: serie.original_language }}</li>
+                        <li class="list-group-item"><i class="bi bi-film me-2"></i><strong>Seasons:</strong>
+                            {{ serie.number_of_seasons }}</li>
+                        <li class="list-group-item"><i class="bi bi-play-circle me-2"></i><strong>Episodes:</strong>
+                            {{ serie.number_of_episodes }}</li>
+                        <li class="list-group-item"><i class="bi bi-calendar-event me-2"></i><strong>Air Date:</strong>
+                            {{ serie.first_air_date }}</li>
+                        <li class="list-group-item"><i class="bi bi-calendar-check me-2"></i><strong>Last Air
+                                Date:</strong>
+                            {{ serie.last_air_date }}</li>
+                        <li class="list-group-item"><i class="bi bi-star me-2"></i><strong>Rating:</strong> ⭐{{
+                            serie.vote_average }}
+                            ({{ serie.vote_count }} votos)</li>
+                        <li class="list-group-item"><i class="bi bi-tv me-2"></i><strong>Finished:</strong>
+                            {{ serie.in_production ? 'No' : 'Yes' }}</li>
+                    </ul>
+
+                    @if(serie.homepage) {
+                    <a [href]="serie.homepage" class="btn btn-primary mt-3" target="_blank">
+                        <i class="bi bi-box-arrow-up-right me-2"></i> Página Oficial
+                    </a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}

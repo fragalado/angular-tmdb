@@ -1,0 +1,51 @@
+.card img {
+  object-fit: cover;
+}
+
+.movie-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Fondo semitransparente */
+  color: white;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-bottom: 4px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.movie-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.movie-date {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* Scrollbar */
+.scroll-container {
+  max-height: 500px; /* Altura fija del contenedor */
+  overflow-y: auto; /* Habilita el scroll vertical */
+  overflow-x: hidden; /* Ocultar scroll horizontal */
+  padding-right: 5px; /* Espacio para la barra de desplazamiento */
+}
+
+/* Personalizar la barra de scroll (opcional) */
+.scroll-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background-color: #696969; /* Color azul de Bootstrap */
+  border-radius: 10px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
